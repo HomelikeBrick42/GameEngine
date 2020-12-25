@@ -18,6 +18,8 @@ namespace BrickEngine {
 		virtual void Hide() override final;
 
 		virtual void PollEvents() override final;
+
+		virtual void* GetNativeWindowHandle() override final;
 	private:
 		static uint64 s_WindowCount;
 	private:

@@ -52,6 +52,11 @@ namespace BrickEngine {
         glfwPollEvents();
     }
 
+    void* WindowsWindow::GetNativeWindowHandle()
+    {
+        return m_Window;
+    }
+
 }
 
 #endif

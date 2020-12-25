@@ -14,6 +14,8 @@ namespace BrickEngine {
 
 		virtual void PollEvents() = 0;
 
+		virtual void* GetNativeWindowHandle() = 0;
+
 		static ScopePtr<Window> Create(uint32 width, uint32 height, const char* title, bool show = true);
 	protected:
 		Window() = default;

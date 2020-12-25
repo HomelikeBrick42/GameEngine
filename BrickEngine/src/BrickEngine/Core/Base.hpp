@@ -40,6 +40,16 @@ namespace BrickEngine {
 	#define BRICKENGINE_PLATFORM_MAC 1
 #endif
 
+#if defined(BRICKENGINE_DLL)
+	#if defined(BRICKENGINE_BUILD_DLL)
+		#define BRICKENGINE_API __declspec(dllexport)
+	#else
+		#define BRICKENGINE_API __declspec(dllimport)
+	#endif
+#else
+	#define BRICKENGINE_API
+#endif
+
 #define BRICKENGINE_ENABLE_ASSERTS 1
 #if BRICKENGINE_ENABLE_ASSERTS
 	#if defined(_MSC_VER)
@@ -48,7 +58,7 @@ namespace BrickEngine {
 	#else
 		#define BRICKENGINE_DEBUG_BREAK
 	#endif
-	#define BRICKENGINE_ASSERT(x) if (!(x)) { BRICKENGINE_DEBUG_BREAK; }
+	#define BRICKENGINE_ASSERT(x, ...) if (!(x)) { BRICKENGINE_DEBUG_BREAK; }
 #else
-	#define BRICKENGINE_ASSERT(x)
+	#define BRICKENGINE_ASSERT(x, ...)
 #endif

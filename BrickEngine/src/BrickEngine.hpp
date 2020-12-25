@@ -5,3 +5,4 @@
 
 // Core
 #include "BrickEngine/Core/Base.hpp"
+#include "BrickEngine/Core/Window.hpp"

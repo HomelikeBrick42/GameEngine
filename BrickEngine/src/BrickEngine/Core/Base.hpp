@@ -30,6 +30,22 @@ namespace BrickEngine {
 	static_assert(sizeof(float32) == 4, "Expected sizeof float32 to be 4 bytes.");
 	static_assert(sizeof(float64) == 8, "Expected sizeof float64 to be 8 bytes.");
 
+	template<typename T>
+	using ScopePtr = std::unique_ptr<T>;
+	template<typename T, typename ... Args>
+	constexpr ScopePtr<T> CreateScope(Args&& ... args)
+	{
+		return std::make_unique<T>(std::forward<Args>(args)...);
+	}
+
+	template<typename T>
+	using SharedPtr = std::shared_ptr<T>;
+	template<typename T, typename ... Args>
+	constexpr SharedPtr<T> CreateShared(Args&& ... args)
+	{
+		return std::make_shared<T>(std::forward<Args>(args)...);
+	}
+
 }
 
 #if defined(_WIN32) || defined(_WIN64)

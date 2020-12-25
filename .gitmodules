@@ -1,0 +1,3 @@
+[submodule "BrickEngine/vendor/GLFW/glfw"]
+	path = BrickEngine/vendor/GLFW/glfw
+	url = https://github.com/glfw/glfw

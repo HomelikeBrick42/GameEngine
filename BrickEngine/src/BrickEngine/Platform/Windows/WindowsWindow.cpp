@@ -1,13 +1,13 @@
 #include "brickpch.hpp"
-#include "BrickEngine/Platform/WindowsWindow.hpp"
+#include "BrickEngine/Platform/Windows/WindowsWindow.hpp"
 
 #ifdef BRICKENGINE_PLATFORM_WINDOWS
 
 namespace BrickEngine {
 
-    Window* Window::Create(uint32 width, uint32 height, const char* title, bool show)
+    ScopePtr<Window> Window::Create(uint32 width, uint32 height, const char* title, bool show)
     {
-        return new WindowsWindow(width, height, title, show);
+        return CreateScope<WindowsWindow>(width, height, title, show);
     }
 
     uint64 WindowsWindow::s_WindowCount = 0;

@@ -30,6 +30,7 @@ namespace BrickEngine {
 	static_assert(sizeof(float32) == 4, "Expected sizeof float32 to be 4 bytes.");
 	static_assert(sizeof(float64) == 8, "Expected sizeof float64 to be 8 bytes.");
 
+	// TODO: Replace with own class
 	template<typename T>
 	using ScopePtr = std::unique_ptr<T>;
 	template<typename T, typename ... Args>
@@ -38,6 +39,7 @@ namespace BrickEngine {
 		return std::make_unique<T>(std::forward<Args>(args)...);
 	}
 
+	// TODO: Replace with own class
 	template<typename T>
 	using SharedPtr = std::shared_ptr<T>;
 	template<typename T, typename ... Args>
@@ -47,6 +49,8 @@ namespace BrickEngine {
 	}
 
 }
+
+#define BRICKENINE_BIND_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 #if defined(_WIN32) || defined(_WIN64)
 	#define BRICKENGINE_PLATFORM_WINDOWS 1
@@ -70,11 +74,11 @@ namespace BrickEngine {
 #if BRICKENGINE_ENABLE_ASSERTS
 	#if defined(_MSC_VER)
 		#include <intrin.h>
-		#define BRICKENGINE_DEBUG_BREAK __debugbreak()
+		#define BRICKENGINE_DEBUG_BREAK() __debugbreak()
 	#else
-		#define BRICKENGINE_DEBUG_BREAK
+		#define BRICKENGINE_DEBUG_BREAK()
 	#endif
-	#define BRICKENGINE_ASSERT(x, ...) if (!(x)) { BRICKENGINE_DEBUG_BREAK; }
+	#define BRICKENGINE_ASSERT(x, ...) if (!(x)) { BRICKENGINE_DEBUG_BREAK(); }
 #else
 	#define BRICKENGINE_ASSERT(x, ...)
 #endif

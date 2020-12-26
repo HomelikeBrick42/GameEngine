@@ -3,10 +3,6 @@
 
 #include "BrickEngine/Core/Platform.hpp"
 
-#include "BrickEngine/Renderer/VertexBuffer.hpp"
-
-#include <glad/glad.h>
-
 namespace BrickEngine {
 
 	Application* Application::s_Application = nullptr;
@@ -36,16 +32,6 @@ namespace BrickEngine {
 	{
 		m_Window->Show();
 
-		float vertices[] = {
-			 0.0f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f
-		};
-		SharedPtr<VertexBuffer> vertexBuffer = m_Renderer->CreateVertexBuffer(vertices, sizeof(vertices), {
-			{ ShaderDataType::Float3, "a_Position" },
-			{ ShaderDataType::Float4, "a_Color"    }
-		});
-
 		double delta, time, lastTime = Platform::GetTime();
 		while (m_Running)
 		{
@@ -57,12 +43,6 @@ namespace BrickEngine {
 				layer->OnUpdate(delta);
 			for (auto& layer : m_Layers)
 				layer->OnRender();
-
-			m_Renderer->SetClearColor(0.1, 0.1, 0.1, 1.0);
-			m_Renderer->Clear();
-
-			vertexBuffer->Bind();
-			m_Renderer->Draw(0, 3);
 
 			m_Window->PollEvents();
 			m_Renderer->SwapBuffers();

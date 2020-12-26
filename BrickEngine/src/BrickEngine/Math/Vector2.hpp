@@ -5,7 +5,7 @@
 namespace BrickEngine {
 
 	template<typename T>
-	struct Vector<2, T>
+	struct BRICKENGINE_API Vector<2, T>
 	{
 		union { T x, r; };
 		union { T y, g; };

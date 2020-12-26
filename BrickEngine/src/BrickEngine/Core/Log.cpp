@@ -13,13 +13,15 @@ namespace BrickEngine {
 
 		uint64 len = snprintf(nullptr, 0, prefix, fmt);
 		char* buffer = new char[len + 1];
-		snprintf(buffer, 1, prefix, fmt);
+		sprintf(buffer, prefix, fmt);
 		buffer[len] = '\0';
 
 		va_list args;
 		va_start(args, fmt);
 		vprintf(buffer, args);
 		va_end(args);
+
+		delete[] buffer;
 	}
 
 	void Log::Info(const char* fmt, ...)
@@ -28,13 +30,15 @@ namespace BrickEngine {
 
 		uint64 len = snprintf(nullptr, 0, prefix, fmt);
 		char* buffer = new char[len + 1];
-		snprintf(buffer, 1, prefix, fmt);
+		sprintf(buffer, prefix, fmt);
 		buffer[len] = '\0';
 
 		va_list args;
 		va_start(args, fmt);
 		vprintf(buffer, args);
 		va_end(args);
+
+		delete[] buffer;
 	}
 
 	void Log::Warn(const char* fmt, ...)
@@ -43,13 +47,15 @@ namespace BrickEngine {
 
 		uint64 len = snprintf(nullptr, 0, prefix, fmt);
 		char* buffer = new char[len + 1];
-		snprintf(buffer, 1, prefix, fmt);
+		sprintf(buffer, prefix, fmt);
 		buffer[len] = '\0';
 
 		va_list args;
 		va_start(args, fmt);
 		vprintf(buffer, args);
 		va_end(args);
+
+		delete[] buffer;
 	}
 
 	void Log::Error(const char* fmt, ...)
@@ -65,6 +71,8 @@ namespace BrickEngine {
 		va_start(args, fmt);
 		vprintf(buffer, args);
 		va_end(args);
+
+		delete[] buffer;
 	}
 
 	void Log::Fatal(const char* fmt, ...)
@@ -73,13 +81,15 @@ namespace BrickEngine {
 
 		uint64 len = snprintf(nullptr, 0, prefix, fmt);
 		char* buffer = new char[len + 1];
-		snprintf(buffer, 1, prefix, fmt);
+		sprintf(buffer, prefix, fmt);
 		buffer[len] = '\0';
 
 		va_list args;
 		va_start(args, fmt);
 		vprintf(buffer, args);
 		va_end(args);
+
+		delete[] buffer;
 	}
 
 }

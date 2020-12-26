@@ -16,8 +16,6 @@ namespace BrickEngine {
 
 		virtual void SetLayout(const VertexLayout& layout) = 0;
 		virtual void SetData(const void* data, uint64 size) = 0;
-
-		static SharedPtr<VertexBuffer> Create(const void* data, uint64 size, const VertexLayout& layout);
 	protected:
 		VertexBuffer() = default;
 	private:

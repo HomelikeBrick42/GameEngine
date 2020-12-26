@@ -196,6 +196,9 @@ namespace BrickEngine {
 		case ShaderDataType::Double4:
 			return ShaderDataType::Double;
 		}
+
+		BRICKENGINE_ASSERT(false, "Invalid shader data type!");
+		return ShaderDataType::Invalid;
 	}
 
 }

@@ -5,7 +5,6 @@
 
 #include "BrickEngine/Renderer/VertexBuffer.hpp"
 
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
 namespace BrickEngine {
@@ -20,6 +19,7 @@ namespace BrickEngine {
 		Platform::Init();
 		Platform::InitTime();
 		m_Window = Window::Create(1280, 720, "BrickEngine Window", false);
+		m_Renderer = Renderer::Create(m_Window.get());
 	}
 
 	Application::~Application()
@@ -36,15 +36,12 @@ namespace BrickEngine {
 	{
 		m_Window->Show();
 
-		glfwMakeContextCurrent((GLFWwindow*)m_Window->GetNativeWindowHandle());
-		gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-
 		float vertices[] = {
 			 0.0f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
 			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
 			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f
 		};
-		SharedPtr<VertexBuffer> vertexBuffer = VertexBuffer::Create(vertices, sizeof(vertices), {
+		SharedPtr<VertexBuffer> vertexBuffer = m_Renderer->CreateVertexBuffer(vertices, sizeof(vertices), {
 			{ ShaderDataType::Float3, "a_Position" },
 			{ ShaderDataType::Float4, "a_Color"    }
 		});
@@ -68,7 +65,7 @@ namespace BrickEngine {
 			glDrawArrays(GL_TRIANGLES, 0, 3);
 
 			m_Window->PollEvents();
-			glfwSwapBuffers((GLFWwindow*)m_Window->GetNativeWindowHandle());
+			m_Renderer->SwapBuffers();
 		}
 	}
 

@@ -104,7 +104,7 @@ namespace BrickEngine {
 					glEnableVertexAttribArray((GLuint)index);
 					glVertexAttribPointer(
 						(GLuint)index,
-						GetShaderDataTypeCount(element.Type),
+						(GLint)GetShaderDataTypeCount(element.Type),
 						ShaderDataTypeToOpenGLDataType(element.Type),
 						element.Normalized ? GL_TRUE : GL_FALSE,
 						(GLsizei)stride,
@@ -116,7 +116,7 @@ namespace BrickEngine {
 					glEnableVertexAttribArray((GLuint)index);
 					glVertexAttribIPointer(
 						(GLuint)index,
-						GetShaderDataTypeCount(element.Type),
+						(GLint)GetShaderDataTypeCount(element.Type),
 						ShaderDataTypeToOpenGLDataType(element.Type),
 						(GLsizei)stride,
 						(const void*)offset
@@ -127,7 +127,7 @@ namespace BrickEngine {
 				glEnableVertexAttribArray((GLuint)index);
 				glVertexAttribPointer(
 					(GLuint)index,
-					GetShaderDataTypeCount(element.Type),
+					(GLint)GetShaderDataTypeCount(element.Type),
 					ShaderDataTypeToOpenGLDataType(element.Type),
 					element.Normalized ? GL_TRUE : GL_FALSE,
 					(GLsizei)stride,
@@ -138,7 +138,7 @@ namespace BrickEngine {
 				glEnableVertexAttribArray((GLuint)index);
 				glVertexAttribLPointer(
 					(GLuint)index,
-					GetShaderDataTypeCount(element.Type),
+					(GLint)GetShaderDataTypeCount(element.Type),
 					ShaderDataTypeToOpenGLDataType(element.Type),
 					(GLsizei)stride,
 					(const void*)offset

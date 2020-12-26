@@ -3,7 +3,9 @@
 #include "BrickEngine/Core/Base.hpp"
 
 #include "BrickEngine/Core/Window.hpp"
+
 #include "BrickEngine/Renderer/VertexBuffer.hpp"
+#include "BrickEngine/Renderer/Shader.hpp"
 
 namespace BrickEngine {
 
@@ -19,6 +21,7 @@ namespace BrickEngine {
 
 		virtual void SwapBuffers() = 0;
 
+		virtual SharedPtr<Shader> CreateShader(const std::string& vertexSource, const std::string& fragmentSource) = 0;
 		virtual SharedPtr<VertexBuffer> CreateVertexBuffer(const void* data, uint64 size, const VertexLayout& layout) = 0;
 
 		static ScopePtr<Renderer> Create(Window* window);

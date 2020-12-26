@@ -2,6 +2,7 @@
 #include "BrickEngine/Renderer/OpenGL/OpenGLRenderer.hpp"
 
 #include "BrickEngine/Renderer/OpenGL/OpenGLVertexBuffer.hpp"
+#include "BrickEngine/Renderer/OpenGL/OpenGLShader.hpp"
 
 #if BRICKENGINE_PLATFORM_WINDOWS
 	#include <GLFW/glfw3.h>
@@ -75,6 +76,11 @@ namespace BrickEngine {
 #if BRICKENGINE_PLATFORM_WINDOWS
 		glfwSwapBuffers((GLFWwindow*)m_Window->GetNativeWindowHandle());
 #endif
+	}
+
+	SharedPtr<Shader> OpenGLRenderer::CreateShader(const std::string& vertexSource, const std::string& fragmentSource)
+	{
+		return CreateShared<OpenGLShader>(vertexSource, fragmentSource);
 	}
 
 	SharedPtr<VertexBuffer> OpenGLRenderer::CreateVertexBuffer(const void* data, uint64 size, const VertexLayout& layout)

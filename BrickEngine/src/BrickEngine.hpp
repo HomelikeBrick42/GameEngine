@@ -14,4 +14,5 @@
 #include "BrickEngine/Renderer/ShaderDataTypes.hpp"
 #include "BrickEngine/Renderer/VertexLayout.hpp"
 #include "BrickEngine/Renderer/VertexBuffer.hpp"
+#include "BrickEngine/Renderer/Shader.hpp"
 #include "BrickEngine/Renderer/Renderer.hpp"

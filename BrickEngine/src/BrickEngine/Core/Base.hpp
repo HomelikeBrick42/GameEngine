@@ -86,11 +86,11 @@ namespace BrickEngine {
 
 #define BRICKENGINE_ENABLE_DEBUG_LOGGING 1
 #if BRICKENGINE_ENABLE_DEBUG_LOGGING
-	#define BRICKENGINE_DEBUG_TRACE(x, ...)		std::cout << "[TRACE]: " << x << std::endl;
-	#define BRICKENGINE_DEBUG_INFO(x, ...)		std::cout << "[INFO]:  " << x << std::endl;
-	#define BRICKENGINE_DEBUG_WARN(x, ...)		std::cout << "[WARN]:  " << x << std::endl;
-	#define BRICKENGINE_DEBUG_ERROR(x, ...)		std::cout << "[ERROR]: " << x << std::endl;
-	#define BRICKENGINE_DEBUG_FATAL(x, ...)		std::cout << "[FATAL]: " << x << std::endl;
+	#define BRICKENGINE_DEBUG_TRACE(x, ...)		printf("[TRACE]: %s\n", x);
+	#define BRICKENGINE_DEBUG_INFO(x, ...)		printf("[INFO]:  %s\n", x);
+	#define BRICKENGINE_DEBUG_WARN(x, ...)		printf("[WARN]:  %s\n", x);
+	#define BRICKENGINE_DEBUG_ERROR(x, ...)		printf("[ERROR]: %s\n", x);
+	#define BRICKENGINE_DEBUG_FATAL(x, ...)		printf("[FATAL]: %s\n", x);
 #else
 	#define BRICKENGINE_DEBUG_TRACE(x, ...)
 	#define BRICKENGINE_DEBUG_INFO(x, ...)

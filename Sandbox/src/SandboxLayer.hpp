@@ -18,7 +18,8 @@ namespace Sandbox {
 		virtual void OnRender() override final;
 	private:
 		Renderer& m_Renderer;
-		SharedPtr<VertexBuffer> m_VertexBuffer;
+		SharedPtr<VertexBuffer> m_VertexBuffer = nullptr;
+		SharedPtr<Shader> m_Shader = nullptr;
 	};
 
 }

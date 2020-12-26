@@ -20,11 +20,13 @@ void main()
 R"(
 #version 440 core
 
+uniform vec4 u_Color;
+
 layout(location = 0) out vec4 o_Color;
 
 void main()
 {
-	o_Color = vec4(1.0, 0.0, 0.0, 1.0);
+	o_Color = u_Color;
 }
 )");
 
@@ -52,6 +54,7 @@ void main()
 		m_Renderer.Clear();
 
 		m_Shader->Bind();
+		m_Shader->SetVector4("u_Color", Vector4f(1.0f, 0.0f, 0.0f, 1.0f));
 		m_VertexBuffer->Bind();
 		m_Renderer.Draw(0, 3);
 	}

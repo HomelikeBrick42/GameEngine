@@ -81,20 +81,20 @@ namespace BrickEngine {
 
 	#define BRICKENGINE_ASSERT(x, msg, ...) if (!(x)) { BRICKENGINE_DEBUG_FATAL(msg, __VA_ARGS__); BRICKENGINE_DEBUG_BREAK(); }
 #else
-	#define BRICKENGINE_ASSERT(x, msg, ...)
+	#define BRICKENGINE_ASSERT(x, msg, ...) {}
 #endif
 
 #define BRICKENGINE_ENABLE_DEBUG_LOGGING 1
 #if BRICKENGINE_ENABLE_DEBUG_LOGGING
-	#define BRICKENGINE_DEBUG_TRACE(x, ...)		Log::Trace(x, __VA_ARGS__);
-	#define BRICKENGINE_DEBUG_INFO(x, ...)		Log::Info(x, __VA_ARGS__);
-	#define BRICKENGINE_DEBUG_WARN(x, ...)		Log::Warn(x, __VA_ARGS__);
-	#define BRICKENGINE_DEBUG_ERROR(x, ...)		Log::Error(x, __VA_ARGS__);
-	#define BRICKENGINE_DEBUG_FATAL(x, ...)		Log::Fatal(x, __VA_ARGS__);
+	#define BRICKENGINE_DEBUG_TRACE(x, ...)		Log::Trace(x, __VA_ARGS__)
+	#define BRICKENGINE_DEBUG_INFO(x, ...)		Log::Info(x, __VA_ARGS__)
+	#define BRICKENGINE_DEBUG_WARN(x, ...)		Log::Warn(x, __VA_ARGS__)
+	#define BRICKENGINE_DEBUG_ERROR(x, ...)		Log::Error(x, __VA_ARGS__)
+	#define BRICKENGINE_DEBUG_FATAL(x, ...)		Log::Fatal(x, __VA_ARGS__)
 #else
-	#define BRICKENGINE_DEBUG_TRACE(x, ...)
-	#define BRICKENGINE_DEBUG_INFO(x, ...)
-	#define BRICKENGINE_DEBUG_WARN(x, ...)
-	#define BRICKENGINE_DEBUG_ERROR(x, ...)
-	#define BRICKENGINE_DEBUG_FATAL(x, ...)
+	#define BRICKENGINE_DEBUG_TRACE(x, ...) {}
+	#define BRICKENGINE_DEBUG_INFO(x, ...) {}
+	#define BRICKENGINE_DEBUG_WARN(x, ...) {}
+	#define BRICKENGINE_DEBUG_ERROR(x, ...) {}
+	#define BRICKENGINE_DEBUG_FATAL(x, ...) {}
 #endif

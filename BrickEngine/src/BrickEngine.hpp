@@ -17,3 +17,9 @@
 #include "BrickEngine/Renderer/VertexBuffer.hpp"
 #include "BrickEngine/Renderer/Shader.hpp"
 #include "BrickEngine/Renderer/Renderer.hpp"
+
+// Math
+#include "BrickEngine/Math/Vector.hpp"
+#include "BrickEngine/Math/Vector2.hpp"
+#include "BrickEngine/Math/Vector3.hpp"
+#include "BrickEngine/Math/Vector4.hpp"

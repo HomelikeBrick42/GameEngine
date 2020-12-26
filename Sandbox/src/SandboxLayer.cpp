@@ -44,7 +44,6 @@ void main()
 
 	void SandboxLayer::OnUpdate(float64 dt)
 	{
-		Log::Trace("%.3f", 1.0 / dt);
 	}
 
 	void SandboxLayer::OnRender()

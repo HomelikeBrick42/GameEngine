@@ -5,9 +5,9 @@
 
 namespace BrickEngine {
 
-	SharedPtr<VertexBuffer> VertexBuffer::Create(const void* data, uint64 size)
+	SharedPtr<VertexBuffer> VertexBuffer::Create(const void* data, uint64 size, const VertexLayout& layout)
 	{
-		return CreateShared<OpenGLVertexBuffer>(data, size);
+		return CreateShared<OpenGLVertexBuffer>(data, size, layout);
 	}
 
 }

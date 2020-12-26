@@ -8,3 +8,8 @@
 #include "BrickEngine/Core/Layer.hpp"
 #include "BrickEngine/Core/Window.hpp"
 #include "BrickEngine/Core/Application.hpp"
+
+// Renderer
+#include "BrickEngine/Renderer/ShaderDataTypes.hpp"
+#include "BrickEngine/Renderer/VertexLayout.hpp"
+#include "BrickEngine/Renderer/VertexBuffer.hpp"

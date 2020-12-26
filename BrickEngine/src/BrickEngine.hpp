@@ -5,6 +5,7 @@
 
 // Core
 #include "BrickEngine/Core/Base.hpp"
+#include "BrickEngine/Core/Log.hpp"
 #include "BrickEngine/Core/Layer.hpp"
 #include "BrickEngine/Core/Platform.hpp"
 #include "BrickEngine/Core/Window.hpp"

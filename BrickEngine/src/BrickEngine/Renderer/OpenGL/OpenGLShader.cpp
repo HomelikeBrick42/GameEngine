@@ -24,7 +24,7 @@ namespace BrickEngine {
 			std::vector<GLchar> errorLog(maxLength);
 			glGetShaderInfoLog(vertexShader, maxLength, &maxLength, &errorLog[0]);
 
-			BRICKENGINE_DEBUG_ERROR("OpenGL Vertex Shader Error: ", errorLog.data());
+			BRICKENGINE_DEBUG_ERROR(errorLog.data());
 		}
 
 		const GLchar* fragmentSrc = fragmentSource.c_str();
@@ -41,7 +41,7 @@ namespace BrickEngine {
 			std::vector<GLchar> errorLog(maxLength);
 			glGetShaderInfoLog(fragmentShader, maxLength, &maxLength, &errorLog[0]);
 
-			BRICKENGINE_DEBUG_ERROR("OpenGL Fragment Shader Error: ", errorLog.data());
+			BRICKENGINE_DEBUG_ERROR(errorLog.data());
 		}
 
 		glAttachShader(m_RendererID, vertexShader);
@@ -57,7 +57,7 @@ namespace BrickEngine {
 			std::vector<GLchar> errorLog(maxLength);
 			glGetProgramInfoLog(m_RendererID, maxLength, &maxLength, &errorLog[0]);
 
-			BRICKENGINE_DEBUG_ERROR("OpenGL Shader Linking Error: ", errorLog.data());
+			BRICKENGINE_DEBUG_ERROR(errorLog.data());
 		}
 
 		glDetachShader(m_RendererID, vertexShader);

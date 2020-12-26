@@ -58,11 +58,11 @@ namespace BrickEngine {
 			for (auto& layer : m_Layers)
 				layer->OnRender();
 
-			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+			m_Renderer->SetClearColor(0.1, 0.1, 0.1, 1.0);
+			m_Renderer->Clear();
 
 			vertexBuffer->Bind();
-			glDrawArrays(GL_TRIANGLES, 0, 3);
+			m_Renderer->Draw(0, 3);
 
 			m_Window->PollEvents();
 			m_Renderer->SwapBuffers();

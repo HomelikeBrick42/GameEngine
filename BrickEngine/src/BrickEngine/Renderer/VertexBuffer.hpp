@@ -6,7 +6,7 @@
 
 namespace BrickEngine {
 
-	class VertexBuffer
+	class BRICKENGINE_API VertexBuffer
 	{
 	public:
 		virtual ~VertexBuffer() = default;

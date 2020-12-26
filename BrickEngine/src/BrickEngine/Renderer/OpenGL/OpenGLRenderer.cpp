@@ -24,6 +24,21 @@ namespace BrickEngine {
 	{
 	}
 
+	void OpenGLRenderer::SetClearColor(double red, double green, double blue, double alpha)
+	{
+		glClearColor((GLfloat)red, (GLfloat)green, (GLfloat)blue, (GLfloat)alpha);
+	}
+
+	void OpenGLRenderer::Clear()
+	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	}
+
+	void OpenGLRenderer::Draw(uint64 first, uint64 count)
+	{
+		glDrawArrays(GL_TRIANGLES, (GLint)first, (GLint)count);
+	}
+
 	void OpenGLRenderer::SwapBuffers()
 	{
 #if BRICKENGINE_PLATFORM_WINDOWS

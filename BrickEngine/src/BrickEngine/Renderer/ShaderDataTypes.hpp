@@ -41,7 +41,7 @@ namespace BrickEngine {
 		Double4,
 	};
 
-	inline uint64 GetShaderDataTypeElementSize(ShaderDataType type)
+	inline uint64 BRICKENGINE_API GetShaderDataTypeElementSize(ShaderDataType type)
 	{
 		switch (type)
 		{
@@ -103,7 +103,7 @@ namespace BrickEngine {
 		return 0;
 	}
 
-	inline uint64 GetShaderDataTypeCount(ShaderDataType type)
+	inline uint64 BRICKENGINE_API GetShaderDataTypeCount(ShaderDataType type)
 	{
 		switch (type)
 		{
@@ -149,7 +149,7 @@ namespace BrickEngine {
 		return 0;
 	}
 
-	inline ShaderDataType GetShaderDataTypeBaseType(ShaderDataType type)
+	inline ShaderDataType BRICKENGINE_API GetShaderDataTypeBaseType(ShaderDataType type)
 	{
 		switch (type)
 		{

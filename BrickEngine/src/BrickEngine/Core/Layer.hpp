@@ -4,7 +4,7 @@
 
 namespace BrickEngine {
 
-	class Layer
+	class BRICKENGINE_API Layer
 	{
 	public:
 		virtual ~Layer() = default;

@@ -9,7 +9,7 @@
 
 namespace BrickEngine {
 
-	class Application
+	class BRICKENGINE_API Application
 	{
 	protected:
 		Application();

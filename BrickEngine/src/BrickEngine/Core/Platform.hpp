@@ -4,7 +4,7 @@
 
 namespace BrickEngine {
 
-	class Platform
+	class BRICKENGINE_API Platform
 	{
 	public:
 		static void Init();

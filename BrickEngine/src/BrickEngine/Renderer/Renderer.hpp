@@ -7,10 +7,15 @@
 
 namespace BrickEngine {
 
-	class Renderer
+	class BRICKENGINE_API Renderer
 	{
 	public:
 		virtual ~Renderer() = default;
+
+		virtual void SetClearColor(double red, double green, double blue, double alpha = 1.0f) = 0;
+		virtual void Clear() = 0;
+
+		virtual void Draw(uint64 first, uint64 count) = 0;
 
 		virtual void SwapBuffers() = 0;
 

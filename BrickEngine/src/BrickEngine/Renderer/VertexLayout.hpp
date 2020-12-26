@@ -6,10 +6,10 @@
 
 namespace BrickEngine {
 
-	class VertexLayout
+	class BRICKENGINE_API VertexLayout
 	{
 	public:
-		struct VertexElement
+		struct BRICKENGINE_API VertexElement
 		{
 			ShaderDataType Type = ShaderDataType::Invalid;
 			std::string Name = "";

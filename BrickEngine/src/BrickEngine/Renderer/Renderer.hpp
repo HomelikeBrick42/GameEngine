@@ -21,6 +21,7 @@ namespace BrickEngine {
 
 		virtual void SwapBuffers() = 0;
 
+		virtual SharedPtr<Shader> LoadShader(const std::string& vertexPath, const std::string& fragmentPath) = 0;
 		virtual SharedPtr<Shader> CreateShader(const std::string& vertexSource, const std::string& fragmentSource) = 0;
 		virtual SharedPtr<VertexBuffer> CreateVertexBuffer(const void* data, uint64 size, const VertexLayout& layout) = 0;
 

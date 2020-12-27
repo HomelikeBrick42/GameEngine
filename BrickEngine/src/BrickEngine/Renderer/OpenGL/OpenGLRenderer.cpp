@@ -4,6 +4,8 @@
 #include "BrickEngine/Renderer/OpenGL/OpenGLVertexBuffer.hpp"
 #include "BrickEngine/Renderer/OpenGL/OpenGLShader.hpp"
 
+#include "BrickEngine/Core/FileManager.hpp"
+
 #if BRICKENGINE_PLATFORM_WINDOWS
 	#include <GLFW/glfw3.h>
 #endif
@@ -76,6 +78,13 @@ namespace BrickEngine {
 #if BRICKENGINE_PLATFORM_WINDOWS
 		glfwSwapBuffers((GLFWwindow*)m_Window->GetNativeWindowHandle());
 #endif
+	}
+
+	SharedPtr<Shader> OpenGLRenderer::LoadShader(const std::string& vertexPath, const std::string& fragmentPath)
+	{
+		std::string vertexSource = FileManager::LoadString(vertexPath);
+		std::string fragmentSource = FileManager::LoadString(fragmentPath);
+		return CreateShared<OpenGLShader>(vertexSource, fragmentSource);
 	}
 
 	SharedPtr<Shader> OpenGLRenderer::CreateShader(const std::string& vertexSource, const std::string& fragmentSource)

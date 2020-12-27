@@ -5,30 +5,7 @@ namespace Sandbox {
 
 	void SandboxLayer::OnAttach()
 	{
-		m_Shader = m_Renderer.CreateShader(
-R"(
-#version 440 core
-
-layout(location = 0) in vec4 a_Position;
-
-void main()
-{
-	gl_Position = a_Position;
-}
-)",
-
-R"(
-#version 440 core
-
-uniform vec4 u_Color;
-
-layout(location = 0) out vec4 o_Color;
-
-void main()
-{
-	o_Color = u_Color;
-}
-)");
+		m_Shader = m_Renderer.LoadShader("{WORKING_DIR}/Basic.vert.glsl", "{WORKING_DIR}/Basic.frag.glsl");
 
 		std::vector<float> vertices = {
 			0.0f,  0.5f, 0.0f,

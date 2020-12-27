@@ -4,6 +4,7 @@
 #if BRICKENGINE_PLATFORM_WINDOWS
 
 #include <Windows.h>
+#include <shlwapi.h>
 
 namespace BrickEngine {
 
@@ -35,6 +36,15 @@ namespace BrickEngine {
 		BOOL success = QueryPerformanceCounter(&counter);
 		BRICKENGINE_ASSERT(success, "Windows Error: Unable to get preformance counter.");
 		return (float64)counter.QuadPart / (float64)s_Data->Frequency.QuadPart;
+	}
+
+	std::string Platform::GetExecutablePath()
+	{
+		char buffer[MAX_PATH];
+		GetModuleFileNameA(NULL, buffer, MAX_PATH);
+		std::string path(buffer);
+		uint64 lastSlash = path.find_last_of('\\');
+		return path.substr(0, lastSlash);
 	}
 
 }

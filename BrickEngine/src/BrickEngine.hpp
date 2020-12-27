@@ -8,6 +8,7 @@
 #include "BrickEngine/Core/Log.hpp"
 #include "BrickEngine/Core/Layer.hpp"
 #include "BrickEngine/Core/Platform.hpp"
+#include "BrickEngine/Core/FileManager.hpp"
 #include "BrickEngine/Core/Window.hpp"
 #include "BrickEngine/Core/Application.hpp"
 

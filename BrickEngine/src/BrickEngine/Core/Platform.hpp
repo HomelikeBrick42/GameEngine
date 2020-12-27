@@ -12,6 +12,8 @@ namespace BrickEngine {
 
 		static void InitTime();
 		static float64 GetTime();
+
+		static std::string GetExecutablePath();
 	private:
 		Platform() = delete;
 	};
